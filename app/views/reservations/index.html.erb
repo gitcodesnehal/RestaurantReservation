@@ -1,0 +1,50 @@
+
+<h2>Current Reservations</h2>
+<%rc=ReservationsController.new%>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>No of people</th>
+		<th>Time</th>
+	</tr>
+<% @reservations.each do |reservation| %>
+	<tr>
+			<%if reservation.name!=nil%>
+				<td><%=reservation.name%></td>
+			<%end%>
+			<%if reservation.people!=nil%>
+			<td><%=reservation.people%></td>
+			<%end%>
+			<%if reservation.res_time!=nil%>
+			<td><%=reservation.res_time.strftime("%I:%M %p")%></td>
+			<%end%>
+	</tr>
+<%end%>
+</table>
+<h5>Remaining Tables: <%= rc.get_tables%></h5>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+<h2>Make Reservation</h2>
+<%= form_for :reservation, url:reservations_path do |f| %>
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :"No of people" %><br>
+		<%= f.text_field :people %>
+	</p>
+
+	<p>
+		<%= f.label :"Reservation time" %><br>
+		<%= f.time_field :res_time %>
+	</p>
+
+	<p>
+		<%= f.submit :"Reserve"%>
+	</p>
+<% end %>

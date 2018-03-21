@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RestaurantReservation</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <style>
+	table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	}
+	</style>
+  <body>
+    <%= yield %>
+  </body>
+</html>

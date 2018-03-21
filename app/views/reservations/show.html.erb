@@ -1,0 +1,8 @@
+<%rc=ReservationsController.new%>
+<%if rc.get_can_reserve%>
+	<h2>Reservation done successfully</h2>
+	
+<%else%>
+	<h2>Sorry cannot make reservation due to insufficient tables</h2>
+<%end%>
+<a href="/">View Reservations</a>
